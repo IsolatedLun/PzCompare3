@@ -1,5 +1,12 @@
+export type Item = Record<string, string | number | string[]>;
+export type MasterData =  {
+    items: Record<string, Item>,
+    modKeys: Record<string, string[]>,
+}
+
 export interface HomeStore {
-    items: Record<string, string | number | string[]>[],
+    masterData: MasterData,
+    selectedItems: Record<string, Item>,
     filters: string[],
     invertFilters: boolean
 }

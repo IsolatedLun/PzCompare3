@@ -9,7 +9,7 @@ $operator-keys: (
 	place-content
 );
 
-$operator-values: start, end, center, space-evenly, space-between;
+$operator-values: start, end, center, space-evenly, space-between, space-around;
 
 @each $op in $operator-keys {
 	@each $op-val in $operator-values {

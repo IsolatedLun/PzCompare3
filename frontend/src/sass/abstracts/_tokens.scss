@@ -8,6 +8,8 @@ $option-anim-button-overlay: true;
 // Colors
 $clr-primary-400: map-get(map-get($active-theme, 'primary'), 400);
 
+$clr-misc-error: map-get(map-get($active-theme, 'misc'), 'error'); 
+
 $clr-neutral-300: map-get(map-get($active-theme, 'neutral'), 300);
 $clr-neutral-350: map-get(map-get($active-theme, 'neutral'), 350);
 $clr-neutral-400: map-get(map-get($active-theme, 'neutral'), 400);
@@ -42,6 +44,8 @@ $global-accent-color: $clr-primary-400;
 $global-outline-thickness: 2px;
 $global-outline-offset: 3px;
 
+$global-neutral-border: 1px solid $clr-neutral-500;
+
 // Container
 $container-padding: 2rem;
 
@@ -54,16 +58,17 @@ $a-color: $clr-primary-400;
 
 // Button
 $button-primary: $clr-primary-400;
+$button-error: $clr-misc-error;
+
+$button-padding: 0.35rem 0.7rem;
+$button-padding-tiny: 0.25rem 0.5rem;
+$button-padding-small: 0.4rem 0.8rem;
+$button-padding-big: 0.5rem 1rem;
+$button-padding-huge: 0.6rem 1.2rem;
+
 $button-border-radius: $border-radius-bevelled;
-
-$button-padding: 0.5rem 0.85rem;
-$button-padding-tiny: 0.1rem 0.6rem;
-$button-padding-small: 0.25rem 0.8rem;
-$button-padding-big: 0.6rem 1.2rem;
-$button-padding-huge: 0.85rem 1.4rem;
-
 $button-border-thickness: 2px;
-$button-overlay-brightness: 50%;
+$button-overlay-brightness: 30%;
 $button-hologram-transparency: 0.55;
 
 $buttom-anim-rotate-icon-duration: 1s;
@@ -76,7 +81,7 @@ $input-primary-neutral: $clr-neutral-500;
 $input-padding: 0.475rem 0.8rem;
 
 $input-box-shadow: 0 0 0px 2px;
-$input-border-thickness: 2px;
+$input-border-thickness: 1px;
 $input-end-icon-left: 92%;
 $input-end-icon-brightness: 55%;
 $input-border-color-transition-duration: 244ms;

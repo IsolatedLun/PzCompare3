@@ -31,6 +31,8 @@ export const ICON_SIGN_OUT = '\uf08b';
 export const ICON_SIGN_IN = '\uf090';
 export const ICON_EDIT ='\uf044';
 export const ICON_LOOP = '\uf01e';
+export const ICON_CALCULATOR = '\uf1ec';
+export const ICON_FILTER = '\uf0b0';
 
 export const ICON_GRID_V = '\uf58e';
 export const ICON_GRID_H = '\uf58d';

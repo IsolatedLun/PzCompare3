@@ -20,9 +20,18 @@
 
         border: $button-border-thickness solid $transparentBackground;
         background-color: $transparentBackground;
+        transition: 
+            border-color 144ms ease-in-out, 
+            background-color 144ms ease-in-out
+        ;
 
         &[data-selected='true'] {
             background-color: $background;
+        }
+
+        &:is(:hover, :focus-visible) {
+            border-color: color.scale($background, $lightness: $button-overlay-brightness);
+            background-color: color.scale($transparentBackground, $lightness: $button-overlay-brightness);
         }
     }
 
@@ -88,6 +97,10 @@
 .button {
     &[data-variant='primary'] {
         @include createButton($button-primary);
+    }
+
+    &[data-variant='error'] {
+        @include createButton($button-error);
     }
 
     position: relative;

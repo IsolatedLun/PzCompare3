@@ -6,27 +6,18 @@ table, tr,td {
 }
 
 .table-container {
-    border-top: 8px solid royalblue;
-    width: fit-content;
-    background: linear-gradient(-45deg, $clr-neutral-400 ,$clr-neutral-350);
+    --border-color: royalblue;
+    border-top: 8px solid var(--border-color);
+
+    background: linear-gradient(0deg, $clr-neutral-400, $clr-neutral-350);
     border-radius: 9px;
 
-    border-inline: 2px solid $clr-neutral-400;
-    border-block-end: 2px solid $clr-neutral-400;
+    border-inline: 1px solid $clr-neutral-500;
+    border-block-end: 1px solid $clr-neutral-500;
     box-shadow: 6px 16px 8px 0px rgb(0, 0, 0, 0.26);
-    overflow: hidden;
 
     tr:nth-child(2n),
     thead tr {
         background-color: $clr-neutral-300;
-    }
-
-    thead td {
-        font-size: var(--fs-350);
-        font-weight: 500;
-    }
-
-    tbody td {
-        font-size: var(--fs-300);
     }
 }

@@ -31,6 +31,7 @@
 
 	export let id = '';
 	export let value = '';
+	export let list: string[] = [];
 	export let endIcon: string | null = null;
 
 	const dispatch = createEventDispatcher();
@@ -43,7 +44,7 @@
 	const _containerCombinedClass = containerCls.extend(
 		'input-container',
 		'',
-		'pos-relative width-100',
+		'pos-relative',
 	);
 
 	export let _this: Some<HTMLElement> = null;
@@ -66,6 +67,7 @@
 			class={_class.toString()}
 			data-variant={variant}
 			data-attachments={attachments.join(',')}
+			list={id + '-datalist'}
 			{id}
 			type="text"
 			{placeholder}
@@ -82,3 +84,9 @@
 		{/if}
 	</div>
 </Flex>
+
+<datalist id={id + '-datalist'}>
+	{#each list as value}
+		<option {value} />
+	{/each}
+</datalist>

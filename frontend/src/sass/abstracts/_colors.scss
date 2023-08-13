@@ -1,6 +1,6 @@
 $colors-dark: (
 	primary: (
-		400: hsl(206 100% 45%)
+		400: hsl(206 80% 55%)
 	),
 	neutral: (
 		300: hsl(0, 0%, 10%),
@@ -10,6 +10,9 @@ $colors-dark: (
 		600: hsl(0 0 40%),
 		700: hsl(0 0 50%),
 		800: hsl(0 0 60%),
+	),
+	misc: (
+		error: hsl(376 80% 55%)
 	)
 );
 

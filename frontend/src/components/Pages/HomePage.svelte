@@ -1,17 +1,10 @@
 <script lang='ts'>
-	import Navbar from "../Layouts/Navbar/Navbar.svelte";
+	import { homeStore } from "../../stores/homeStore";
 	import Table from "../Modules/Table/Table.svelte";
-
-
 </script>
 
-<Navbar />
-
-<div class="[ flex-wrap justify-content-space-between gap-3 ]">
-	<Table />
-	<Table />
-	<Table />
-	<Table />
-	<Table />
-	<Table />
+<div class="[ flex-wrap justify-content-space-evenly gap-3 padding-1 margin-block-end-3 ]">
+	{#each Object.values($homeStore.selectedItems) as item}
+		<Table {item} />
+	{/each}
 </div>

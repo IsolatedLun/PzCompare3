@@ -12,4 +12,4 @@ export type ButtonAttachments =
 	| 'capsule'
 	| 'flat';
 
-export type ButtonVariants = 'primary';
+export type ButtonVariants = 'primary' | 'error';

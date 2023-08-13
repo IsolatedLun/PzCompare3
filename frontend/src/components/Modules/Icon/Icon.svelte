@@ -5,11 +5,12 @@
 	export let tag = 'span';
 	export let cls = cubeCss('', '', '');
 	export let ariaLabel: string = '';
+    export let fontSize: number = 400;
 
 	const _class = cls.extend(
         'icon',
         '',
-        'ignore-self'
+        `ignore-self fs-${fontSize}`
     )
 </script>
 

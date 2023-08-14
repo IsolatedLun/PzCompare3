@@ -1,11 +1,11 @@
 <script lang='ts'>
-	import { onMount } from "svelte";
-	import { createHomeStore, homeStore } from "../stores/homeStore";
+	import { homeStore } from "../stores/homeStore";
 	import Footer from '../components/Layouts/Footer.svelte';
 
     async function fetchMasterData() {
         const masterData = await import("../master_data.json");
         homeStore.setMasterData(masterData as any);
+        homeStore.tryGetFiltersFromLocalStorage();
 
         return Promise.resolve();
     }

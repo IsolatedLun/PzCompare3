@@ -14,6 +14,14 @@ def clean_text(value: str) -> str:
             .replace('*', '').replace('/', '') \
             .replace('\n', '').replace('\t', '').strip()
 
+def try_num_convert(x: str) -> str | int | float:
+    try:
+        if x.isdigit():
+            return int(x)
+        return float(x)
+    except:
+        return x
+
 def parse_item(text: str) -> dict:
     result = {}
     keys = []
@@ -27,7 +35,7 @@ def parse_item(text: str) -> dict:
                 if key in ['EvolvedRecipe', 'Tags']:
                     val = [x.strip().replace(':', ': ') for x in key_value[1].split(';')]
                 else:
-                    val = clean_text(key_value[1])
+                    val = try_num_convert(clean_text(key_value[1]))
 
                 keys.append(key)
                 result[key] = val

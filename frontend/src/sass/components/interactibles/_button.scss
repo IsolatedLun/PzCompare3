@@ -99,6 +99,10 @@
         @include createButton($button-primary);
     }
 
+    &[data-variant='muted'] {
+        @include createButton($clr-neutral-600);
+    }
+
     &[data-variant='error'] {
         @include createButton($button-error);
     }

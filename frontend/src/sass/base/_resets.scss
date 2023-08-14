@@ -83,6 +83,10 @@ video {
 	background-color: black;
 }
 
+dialog:focus {
+	outline: none;
+}
+
 canvas {
 	display: inline-block;
 	image-rendering: pixelated;

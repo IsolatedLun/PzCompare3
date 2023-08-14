@@ -31,18 +31,33 @@
 			</thead>
 			<tbody class="fs-300">
 				{#each Object.entries(item) as x}
-					{#if !$homeStore.invertFilters && !$homeStore.filters.includes(x[0])}
-						<tr>
-							<td>{x[0]}</td>
-							<td>{x[1]}</td>
-							<td />
-						</tr>
-					{:else if $homeStore.invertFilters && $homeStore.filters.includes(x[0])}
-						<tr>
-							<td>{x[0]}</td>
-							<td>{x[1]}</td>
-							<td />
-						</tr>
+					{#if 
+					!$homeStore.invertFilters && !$homeStore.filters.includes(x[0])
+					||
+					$homeStore.invertFilters && $homeStore.filters.includes(x[0])
+					}
+						{#if !Array.isArray(item['DisplayName'])}
+							<tr>
+								<td>{x[0]}</td>
+								<td>{x[1]}</td>
+								<td class="[ pct ] [ text-align-center ]" 
+									data-type={
+									$homeStore.differences[item['DisplayName']]?.[x[0]] === 0
+									|| !$homeStore.differences[item['DisplayName']]?.[x[0]]
+									? 'neutral'
+									: $homeStore.differences[item['DisplayName']]?.[x[0]] > 0
+									? 'positive'
+									: 'negative'
+									}
+								>
+									{
+										$homeStore.differences[item['DisplayName']]?.[x[0]]
+										? $homeStore.differences[item['DisplayName']]?.[x[0]] + '%'
+										: '-'
+									}
+								</td>
+							</tr>
+						{/if}
 					{/if}
 				{/each}
 			</tbody>

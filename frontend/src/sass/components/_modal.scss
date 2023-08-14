@@ -1,0 +1,15 @@
+@use '../abstracts/' as *;
+
+dialog {
+    @include transformCenter();
+    padding: $modal-padding;
+    background-color: $clr-neutral-400;
+    border: 1px solid $clr-neutral-500;
+    border-radius: $border-radius-bevelled;
+    max-width: $modal-max-width;
+
+    &::backdrop {
+        background-color: $clr-overlay;
+        backdrop-filter: blur($modal-overlay-blur);
+    }
+}

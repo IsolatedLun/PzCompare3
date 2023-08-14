@@ -9,12 +9,16 @@ $option-anim-button-overlay: true;
 $clr-primary-400: map-get(map-get($active-theme, 'primary'), 400);
 
 $clr-misc-error: map-get(map-get($active-theme, 'misc'), 'error'); 
+$clr-misc-positive: map-get(map-get($active-theme, 'misc'), 'positive'); 
+$clr-misc-negative: map-get(map-get($active-theme, 'misc'), 'negative'); 
 
 $clr-neutral-300: map-get(map-get($active-theme, 'neutral'), 300);
 $clr-neutral-350: map-get(map-get($active-theme, 'neutral'), 350);
 $clr-neutral-400: map-get(map-get($active-theme, 'neutral'), 400);
 $clr-neutral-500: map-get(map-get($active-theme, 'neutral'), 500);
 $clr-neutral-600: map-get(map-get($active-theme, 'neutral'), 600);
+
+$clr-overlay: rgba(0 0 0 / 0.5);
 
 // Global
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@200;300;400;500;600&display=swap');
@@ -85,3 +89,8 @@ $input-border-thickness: 1px;
 $input-end-icon-left: 92%;
 $input-end-icon-brightness: 55%;
 $input-border-color-transition-duration: 244ms;
+
+// Modal
+$modal-max-width: 50vmax;
+$modal-padding: 0.65rem 1rem;
+$modal-overlay-blur: 3px;

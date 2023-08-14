@@ -1,17 +1,27 @@
-<script lang='ts'>
-	import { onMount } from "svelte";
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import Button from '../../Interactibles/Button/Button.svelte';
+	import { cubeCss } from '../../../utils/cubeCss/cubeCss';
+	import Flex from '../FlexAndGrid/Flex.svelte';
 
-    onMount(() => {
-        openDialog();
-    })
+	onMount(() => {
+		if (id.length === 0) id = crypto.randomUUID();
+	});
 
-    function openDialog() {
-        _this.showModal();
-    }
+	export let id: string = '';
 
-    let _this: HTMLDialogElement;
+	let _this: HTMLDialogElement;
 </script>
 
-<dialog bind:this={_this}>
+<dialog {id} bind:this={_this}>
+	<slot />
+	<Flex align='end' justify='space-between'>
+		<Button
+			on:click={() => _this.close()}
+			cls={cubeCss('', '', 'margin-block-start-2')}
+			variant="error">Close</Button
+		>
 
+		<slot name='buttons' />
+	</Flex>
 </dialog>

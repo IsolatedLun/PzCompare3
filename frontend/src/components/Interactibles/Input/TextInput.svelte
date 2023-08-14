@@ -17,7 +17,7 @@
 	}
 
 	function handleKeyDown(e: KeyboardEvent) {
-		dispatch(e.key.toLowerCase(), e);
+		dispatch(e.key?.toLowerCase(), e);
 	}
 
 	export let cls = cubeCss('', '', '');

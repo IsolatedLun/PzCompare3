@@ -12,7 +12,10 @@ $colors-dark: (
 		800: hsl(0 0 60%),
 	),
 	misc: (
-		error: hsl(376 80% 55%)
+		error: hsl(376 80% 55%),
+
+		positive: hsl(120 61% 54%),
+		negative: hsl(360 61% 54%)
 	)
 );
 

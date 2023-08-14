@@ -2,12 +2,10 @@ import copy
 
 items = [
     {
-        'damage': [99, 0],
-        'speed': [0.8, 0],
+        'weight': [0.1, 0],
     },
     {
-        'damage': [48, 0],
-        'speed': [1.3, 0]
+        'weight': [1, 0],
     }
 ]
 

@@ -64,7 +64,7 @@ GAME_VERSION = 'v41.78.16'
 KEYS = set()
 MASTER_DATA = {
     'version': GAME_VERSION,
-    'date_updatd': datetime.now().strftime('%d/%m/%Y at %I:%M %p'),
+    'date_updated': datetime.now().strftime('%d/%m/%Y at %I:%M %p'),
     'items': {},
     'mod_keys': {},
     'attrs': []

@@ -6,6 +6,7 @@
 	import Flex from '../../Modules/FlexAndGrid/Flex.svelte';
 	import Icon from '../../Modules/Icon/Icon.svelte';
 	import { ICON_PLUS } from '../../icons';
+	import { cubeCss } from '../../../utils/cubeCss/cubeCss';
 
 
 	function addItem() {
@@ -22,7 +23,8 @@
 				bind:value={name}
 				list={homeStore.getItemNames()}
 				label="Search item"
-				placeholder={'Search x items...'}
+				cls={cubeCss('', '', 'width-100')}
+				placeholder={`Search ${Object.keys($homeStore.masterData.items).length} items...`}
 			/>
 			<Button on:click={addItem} attachments={['hologram', 'mix', 'capsule']}
 				><Icon>{ICON_PLUS}</Icon></Button

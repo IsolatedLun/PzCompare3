@@ -49,7 +49,7 @@ a {
 	color: $a-color;
 }
 
-ul {
+ul:not([role=list]) {
 	list-style: none;
 }
 

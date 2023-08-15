@@ -29,7 +29,7 @@
             background-color: $background;
         }
 
-        &:is(:hover, :focus-visible) {
+        &:not([data-selected='true']):is(:hover, :focus-visible) {
             border-color: color.scale($background, $lightness: $button-overlay-brightness);
             background-color: color.scale($transparentBackground, $lightness: $button-overlay-brightness);
         }

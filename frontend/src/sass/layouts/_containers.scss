@@ -22,7 +22,6 @@
 
 // ======================
 .home-grid {
-    display: grid;
     grid-template-columns: max-content auto;
 
     section:first-child {
@@ -32,8 +31,22 @@
     }
 }
 
+.dictionary-grid {
+    grid-template-columns: 21% auto;
+
+    section:first-child {
+        background-color: $clr-neutral-350;
+        border-right: $global-neutral-border;
+        height: 100%;
+    }
+}
+
 @media(max-width: $breakpoint-small) {
     .home-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dictionary-grid {
         grid-template-columns: 1fr;
     }
 }

@@ -62,7 +62,7 @@
 		<div class="[ flex-wrap justify-content-space-evenly gap-3 padding-1 margin-block-end-3 ]">
 			{#if Object.keys($homeStore.selectedItems).length === 0}
 				<Card padding={2}>
-					<h2 class="[ clr-neutral-800 fw-500 margin-block-end-1 ]">Start searching items</h2>
+					<h2 class="[ fw-500 margin-block-end-1 ]">Start searching items</h2>
 					<Flex align="center" useColumn={true}>
 						<Flex align="center" useColumn={true}>
 							<p class="clr-neutral-800">Add them</p>
@@ -100,7 +100,7 @@
 			list={$homeStore.masterData.attrs}
 		/>
 		<Button on:click={addFilter} attachments={['hologram', 'capsule', 'mix']}
-			><Icon ariaLabel='Add filter'>{ICON_PLUS}</Icon></Button
+			><Icon ariaLabel="Add filter">{ICON_PLUS}</Icon></Button
 		>
 	</Flex>
 	<Flex justify="start" cls={cubeCss('', '', 'flex-wrap margin-block-start-2')}>

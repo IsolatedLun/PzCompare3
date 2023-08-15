@@ -26,7 +26,11 @@ export function createHomeStore() {
             return x;
         }),
         
+        getItems: () => Object.values(get(store).masterData.items),
+        getItemsLenght: () => Object.keys(get(store).masterData.items).length,
+        getModsLength: () => Object.keys(get(store).masterData.modKeys).length,
         getItemNames: () => Object.keys(get(store).masterData.items),
+        getItemByName: (name: string) => get(store).masterData.items[name],
 
         addItem: (name: string) => store.update(x => {
             if(x.masterData.items[name])
@@ -94,6 +98,12 @@ export function createHomeStore() {
 
                 return x;
             })
+        },
+
+        paginateItems: (page: number, query: string[]) => {
+            const items = Object.keys(get(store).masterData.items);
+
+            return items.splice(page * 20, page * 20 + 20);
         }
     }
 };

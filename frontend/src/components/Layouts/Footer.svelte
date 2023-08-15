@@ -23,7 +23,10 @@
                 <a href="/dictionary">Dictionary</a>
             </li>
             <li>
-                <a href="#">Source code</a>
+                <a href="/https://github.com/IsolatedLun/PzCompare3">Source code</a>
+            </li>
+            <li>
+                <a href="https://www.buymeacoffee.com/isolated">Donate</a>
             </li>
         </ul>
     </Flex>

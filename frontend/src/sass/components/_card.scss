@@ -15,4 +15,8 @@
     &[data-variant='muted'] {
         @include createCard($clr-neutral-400);
     }
+
+    &[data-variant='muted-light'] {
+        @include createCard($clr-neutral-500);
+    }
 }

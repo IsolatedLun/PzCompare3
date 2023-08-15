@@ -3,7 +3,16 @@ import type { Item } from "../stores/types"
 const NEGATIVE_ATTRS = [
     "AimingTime",
     "RecoilDelay",
-    "ReloadTime"
+    "ReloadTime",
+    "ChanceToFall",
+    "ChanceToSpawnDamaged",
+    "SwingTime",
+    "MinimumSwingTime",
+    "Weight",
+    "JamGunChance",
+    "SoundGain",
+    "SoundRadius",
+    "SoundVolume"
 ]
 
 export function calculateDifferences(currentItem: Item, items: Item[]) {

@@ -1,11 +1,15 @@
 <script lang='ts'>
 	import { homeStore } from "../stores/homeStore";
 	import Footer from '../components/Layouts/Footer.svelte';
+	import { dictStore } from "../stores/dictionaryStore";
 
     async function fetchMasterData() {
         const masterData = await import("../master_data.json");
+        
         homeStore.setMasterData(masterData as any);
         homeStore.tryGetFiltersFromLocalStorage();
+        
+        dictStore.setItems(homeStore.getItemNames());
 
         return Promise.resolve();
     }

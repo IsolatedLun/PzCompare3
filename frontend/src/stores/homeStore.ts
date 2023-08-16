@@ -7,7 +7,11 @@ export function createHomeStore() {
     const store = writable<HomeStore>({
         masterData: {
             items: {},
-            modKeys: {},
+            organized_items: {
+                vanilla: {},
+                mods: {}
+            },
+            mod_keys: {},
             attrs: [],
             version: 'v41',
             date_updated: 'Now'
@@ -28,7 +32,7 @@ export function createHomeStore() {
         
         getItems: () => Object.values(get(store).masterData.items),
         getItemsLenght: () => Object.keys(get(store).masterData.items).length,
-        getModsLength: () => Object.keys(get(store).masterData.modKeys).length,
+        getModsLength: () => Object.keys(get(store).masterData.mod_keys).length,
         getItemNames: () => Object.keys(get(store).masterData.items),
         getItemByName: (name: string) => get(store).masterData.items[name],
 
@@ -41,6 +45,10 @@ export function createHomeStore() {
             delete x.selectedItems[name];
             x.differences = {};
 
+            return x;
+        }),
+        clearAllItems: () => store.update(x => {
+            x.selectedItems = {};
             return x;
         }),
 

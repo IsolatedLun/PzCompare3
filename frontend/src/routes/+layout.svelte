@@ -4,7 +4,7 @@
 	import { dictStore } from "../stores/dictionaryStore";
 
     async function fetchMasterData() {
-        const masterData = await import("../master_data.json");
+        const masterData = await import("../../../master_data.json");
         
         homeStore.setMasterData(masterData as any);
         homeStore.tryGetFiltersFromLocalStorage();

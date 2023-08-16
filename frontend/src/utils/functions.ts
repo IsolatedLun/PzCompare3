@@ -6,7 +6,7 @@ export function filterItems(items: string[], filters: Record<string, OperatorFil
         return items;
 
     const filteredItems: string[] = [];
-    items.forEach(itemName => {
+    items.forEach((itemName, i) => {
         const itemObject = homeStore.getItemByName(itemName);
         Object.values(filters).forEach(filter => {
             if(itemObject[filter.key] !== undefined) {
@@ -16,9 +16,11 @@ export function filterItems(items: string[], filters: Record<string, OperatorFil
                     filteredItems.push(itemObject["DisplayName"] as string);
                 if(filter.operator === '===' && itemObject[filter.key] === filter.value)
                     filteredItems.push(itemObject["DisplayName"] as string);
+                if(filter.operator === 'in' && itemObject[filter.key])
+                    filteredItems.push(itemObject["DisplayName"] as string);
             }
-        })
-    })
+        });
+    });
 
     return filteredItems;
 }

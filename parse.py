@@ -21,10 +21,21 @@ def try_num_convert(x: str) -> str | int | float:
         return float(x)
     except:
         return x
+    
+def try_clean_val(x: str | int | float):
+    if type(x) in [int, float]:
+        return x
+    
+    if x.lower() == 'true':
+        return True
+    if x.lower() == 'false':
+        return False
+    return x
 
 def parse_item(text: str) -> dict:
     result = {}
     keys = []
+
     split_text = text.split(',')
     for x in split_text:
         key_value = x.split('=')
@@ -35,7 +46,9 @@ def parse_item(text: str) -> dict:
                 if key in ['EvolvedRecipe', 'Tags']:
                     val = [x.strip().replace(':', ': ') for x in key_value[1].split(';')]
                 else:
-                    val = try_num_convert(clean_text(key_value[1]))
+                    val = try_clean_val(
+                        try_num_convert(clean_text(key_value[1]))
+                    )
 
                 keys.append(key)
                 result[key] = val
@@ -53,21 +66,41 @@ def parse_file(fpath: str, fname: str) -> dict:
 
                 (_keys, item) = parse_item(data[i + 1:i + j])
                 keys.extend(_keys)
+            
+                if fpath.startswith('data/mods'):
+                    item['ModName'] = fname.split('.')[0];
 
                 items[item['DisplayName']] = item
                 i = i + j
 
         return (keys, items, fname)
-
+    
+def organize_items(items: dict):
+    results = {'vanilla': {}, 'mods': {}}
+    for x in items.values():
+        if not x.get('ModName', False):
+            results['vanilla'].setdefault(x['Type'], []).append(x['DisplayName'])
+        else:
+            results['mods'].setdefault(x['ModName'], {}) \
+                .setdefault(x['Type'], []) \
+                .append(x['DisplayName'])
+            
+    return results
 
 GAME_VERSION = 'v41.78.16'
 KEYS = set()
+VALUES = set()
 MASTER_DATA = {
     'version': GAME_VERSION,
     'date_updated': datetime.now().strftime('%d/%m/%Y at %I:%M %p'),
     'items': {},
+    'organized_items': {
+        'vanilla': {},
+        'mods': {}
+    },
     'mod_keys': {},
-    'attrs': []
+    'attrs': [],
+    'values': [],
 }
 FILTERS = [
     "WeaponReloadType",
@@ -110,6 +143,7 @@ for fname in os.listdir('data/mods/'):
         MASTER_DATA['mod_keys'][mod_name].append(x)
 
 MASTER_DATA['attrs'] = list(KEYS)
+MASTER_DATA['organized_items'] = organize_items(MASTER_DATA['items'])
 
 with open('master_data.json', 'w') as f:
     # separators=(',', ':')

@@ -1,7 +1,15 @@
 export type Item = Record<string, string | number | string[]>;
+export type CategoryList = Record<string, string[]>;
 export type MasterData =  {
     items: Record<string, Item>,
-    modKeys: Record<string, string[]>,
+    organized_items: {
+        vanilla: CategoryList,
+        mods: Record<
+            string, // Mod name
+            CategoryList
+        >
+    },
+    mod_keys: Record<string, string[]>,
     attrs: string[],
     
     version: string,
@@ -18,7 +26,7 @@ export interface HomeStore {
 }
 
 // ===================
-export type Operator = '' | '<' | '===' | '>'; 
+export type Operator = '' | '<' | '===' | '>' | 'in'; 
 export type OperatorFilter = {
     key: string,
     operator: Operator,

@@ -78,7 +78,7 @@ $button-hologram-transparency: 0.55;
 $buttom-anim-rotate-icon-duration: 1s;
 $button-anim-overlay-duration: 0.35s;
 
-// Button
+// Input
 $input-primary: $clr-neutral-400;
 $input-primary-neutral: $clr-neutral-500;
 
@@ -89,6 +89,14 @@ $input-border-thickness: 1px;
 $input-end-icon-left: 92%;
 $input-end-icon-brightness: 55%;
 $input-border-color-transition-duration: 244ms;
+
+$input-checkbox-background: $clr-neutral-600;
+$input-checkbox-active-background: $clr-primary-400;
+$input-checkbox-circle-background: white;
+$input-checkbox-width: 2.5rem;
+$input-checkbox-circle-start: 30%;
+$input-checkbox-circle-width: 40%;
+$input-checkbox-circle-end: 100% - $input-checkbox-circle-start;
 
 // Modal
 $modal-max-width: 50vmax;

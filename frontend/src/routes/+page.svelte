@@ -33,6 +33,15 @@
 				<Icon ariaLabel="Calculate results">{ICON_CALCULATOR}</Icon>
 			</Button>
 			<Button
+				on:click={() => homeStore.clearAllItems()}
+				variant='error'
+				cls={cubeCss('', '', 'width-100 margin-block-end-1')}
+				attachments={buttonAttachments}
+			>
+				CE
+			</Button>
+
+			<Button
 				on:click={() => openModal('filters-modal')}
 				cls={cubeCss('', '', 'width-100')}
 				attachments={buttonAttachments}
@@ -65,7 +74,7 @@
 					<h2 class="[ fw-500 margin-block-end-1 ]">Start searching items</h2>
 					<Flex align="center" useColumn={true}>
 						<Flex align="center" useColumn={true}>
-							<p class="clr-neutral-800">Add them</p>
+							<p class="clr-neutral-800">Add items</p>
 							<Button
 								variant="muted"
 								attachments={['hologram', 'capsule', 'mix', 'big-pad']}
@@ -73,7 +82,7 @@
 							>
 						</Flex>
 						<Flex align="center" useColumn={true}>
-							<p class="clr-neutral-800">Calculate the results</p>
+							<p class="clr-neutral-800">Calculate the differences</p>
 							<Button
 								variant="muted"
 								attachments={['hologram', 'capsule', 'mix', 'big-pad']}

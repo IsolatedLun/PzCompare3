@@ -39,4 +39,26 @@
     &[data-variant='primary'] {
         @include createInput($input-primary, $input-primary-neutral);
     }
+
+    &[data-input-type='checkbox'] label {
+        background-color: $input-checkbox-background;
+        width: $input-checkbox-width;
+        aspect-ratio: 16 / 9;
+    }
+
+    &[data-input-type='checkbox'] label .circle {
+        @include transformCenter($left: $input-checkbox-circle-start);
+        width: $input-checkbox-circle-width;
+        aspect-ratio: 1;
+        background-color: white;
+
+        transition: left 200ms ease-in-out;
+    }
+
+    &[data-input-type='checkbox'] label[data-checked='true'] {
+        background-color: $input-checkbox-active-background;
+    }
+    &[data-input-type='checkbox'] label[data-checked='true'] .circle {
+        left: $input-checkbox-circle-end;
+    }
 }

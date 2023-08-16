@@ -17,6 +17,7 @@
 		"@babel/preset-env": "^7.22.9",
 		"@babel/preset-typescript": "^7.22.5",
 		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-netlify": "^1.0.0-next.88",
 		"@sveltejs/kit": "^1.20.4",
 		"@testing-library/jest-dom": "^5.17.0",
 		"@testing-library/svelte": "^4.0.3",

@@ -23,5 +23,5 @@
 </div>
 
 <Modal id='dict-mobile-filters-modal'>
-	<DictFilter />
+	<DictFilter bind:showOrganizedItems />
 </Modal>

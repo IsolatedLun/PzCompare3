@@ -16,8 +16,8 @@
 </script>
 
 <nav class="[ navbar ] [ margin-block-end-2 ]">
-	<Flex align="center">
-		<h1 class="fw-normal">PzCompare</h1>
+	<Flex align="center" cls={cubeCss('', '', 'flex-wrap')} alignCenterOnMobile={true} gap={3}>
+		<h1 class="fw-normal" data-desktop='true'>PzCompare</h1>
 		<Flex align="center">
 			<TextInput
 				bind:value={name}
@@ -30,5 +30,6 @@
 				><Icon>{ICON_PLUS}</Icon></Button
 			>
 		</Flex>
+		<Button to='/dictionary' attachments={['hologram', 'mix']}>Dictionary</Button>
 	</Flex>
 </nav>

@@ -38,7 +38,7 @@
 			bind:value={key}
 			showLabel={true}
 			label="Attribute"
-			placeholder="Eg. Damage"
+			placeholder="Eg. Weight"
 			list={$homeStore.masterData.attrs}
 		/>
 		<TextInput bind:value showLabel={true} label="Value" placeholder="Eg. 50" />

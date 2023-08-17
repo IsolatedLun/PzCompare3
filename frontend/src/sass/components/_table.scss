@@ -17,18 +17,18 @@ table, tr,td {
     border-block-end: 1px solid $clr-neutral-500;
     box-shadow: 6px 16px 8px 0px rgb(0, 0, 0, 0.26);
 
-    tr:has(.pct[data-type='positive']) {
+    tr:nth-child(2n),
+    thead tr {
+        background-color: $clr-neutral-300;
+    }
+
+    tr[data-type='positive'] {
         background-color: transparentize($clr-misc-positive, 0.66);
         border: 1px solid $clr-misc-positive;
     }
 
-    tr:has(.pct[data-type='negative']) {
+    tr[data-type='negative'] {
         background-color: transparentize($clr-misc-negative, 0.66);
         border: 1px solid $clr-misc-negative;
-    }
-
-    tr:nth-child(2n),
-    thead tr {
-        background-color: $clr-neutral-300;
     }
 }

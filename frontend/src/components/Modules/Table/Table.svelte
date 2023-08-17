@@ -37,19 +37,18 @@
 					$homeStore.invertFilters && $homeStore.filters.includes(x[0])
 					}
 						{#if !Array.isArray(item['DisplayName'])}
-							<tr>
+							<tr data-type={
+								$homeStore.differences[item['DisplayName']]?.[x[0]] === 0
+								|| !$homeStore.differences[item['DisplayName']]?.[x[0]]
+								? 'neutral'
+								: $homeStore.differences[item['DisplayName']]?.[x[0]] > 0
+								? 'positive'
+								: 'negative'
+								}
+							>
 								<td>{x[0]}</td>
 								<td>{x[1]}</td>
-								<td class="[ pct ] [ text-align-center ]" 
-									data-type={
-									$homeStore.differences[item['DisplayName']]?.[x[0]] === 0
-									|| !$homeStore.differences[item['DisplayName']]?.[x[0]]
-									? 'neutral'
-									: $homeStore.differences[item['DisplayName']]?.[x[0]] > 0
-									? 'positive'
-									: 'negative'
-									}
-								>
+								<td class="[ pct ] [ text-align-center ]">
 									{
 										$homeStore.differences[item['DisplayName']]?.[x[0]]
 										? $homeStore.differences[item['DisplayName']]?.[x[0]] + '%'

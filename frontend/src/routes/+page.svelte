@@ -3,15 +3,15 @@
 	import type { ButtonAttachments } from '../components/Interactibles/Button/types';
 	import TextInput from '../components/Interactibles/Input/TextInput.svelte';
 	import Navbar from '../components/Layouts/Navbar/Navbar.svelte';
-	import Card from '../components/Modules/Card/Card.svelte';
 	import Flex from '../components/Modules/FlexAndGrid/Flex.svelte';
 	import Icon from '../components/Modules/Icon/Icon.svelte';
 	import Modal from '../components/Modules/Modal/Modal.svelte';
 	import { openModal } from '../components/Modules/Modal/utils';
 	import Table from '../components/Modules/Table/Table.svelte';
-	import { ICON_CALCULATOR, ICON_FILTER, ICON_PLUS, ICON_SETTINGS } from '../components/icons';
+	import { ICON_CALCULATOR, ICON_FILTER, ICON_PLUS } from '../components/icons';
 	import { homeStore } from '../stores/homeStore';
 	import { cubeCss } from '../utils/cubeCss/cubeCss';
+	import IntroCard from './Sections/IntroCard.svelte';
 
 	function addFilter() {
 		if (filterValue) homeStore.addFilter(filterValue);
@@ -24,7 +24,7 @@
 
 <div class="[ home-grid ] [ flex-grow-1 height-100 ]">
 	<section class="height-100" data-desktop="true">
-		<Flex align="center" useColumn={true} gap={2}>
+		<Flex align="center" useColumn={true} gap={1}>
 			<Button
 				on:click={() => homeStore.calculateDifferences()}
 				cls={cubeCss('', '', 'width-100')}
@@ -33,27 +33,26 @@
 				<Icon ariaLabel="Calculate results">{ICON_CALCULATOR}</Icon>
 			</Button>
 			<Button
-				on:click={() => homeStore.clearAllItems()}
-				variant='error'
-				cls={cubeCss('', '', 'width-100 margin-block-end-1')}
-				attachments={buttonAttachments}
-			>
-				CE
-			</Button>
-
-			<Button
 				on:click={() => openModal('filters-modal')}
-				cls={cubeCss('', '', 'width-100')}
+				cls={cubeCss('', '', 'width-100 margin-block-end-2')}
 				attachments={buttonAttachments}
 			>
 				<Icon ariaLabel="Open filter modal">{ICON_FILTER}</Icon>
+			</Button>
+			<Button
+				on:click={() => homeStore.clearAllItems()}
+				cls={cubeCss('', '', 'width-100')}
+				variant='error'
+				attachments={buttonAttachments}
+			>
+				C <span class="visually-hidden">Clear all items</span>
 			</Button>
 		</Flex>
 	</section>
 	<section>
 		<Navbar />
 		<div class="padding-1" data-mobile="true">
-			<Flex cls={cubeCss('', '', 'flex-wrap')} align="center" justify="space-between" gap={2}>
+			<Flex cls={cubeCss('', '', 'flex-wrap')} align="center" justify="space-between" gap={1}>
 				<Button
 					on:click={() => homeStore.calculateDifferences()}
 					cls={cubeCss('', '', 'width-100')}
@@ -62,35 +61,23 @@
 				>
 				<Button
 					on:click={() => openModal('filters-modal')}
-					cls={cubeCss('', '', 'width-100')}
+					cls={cubeCss('', '', 'width-100 margin-block-end-2')}
 					attachments={buttonAttachments}
 					><Icon ariaLabel="Open filter modal">{ICON_FILTER}</Icon></Button
 				>
+				<Button
+				on:click={() => homeStore.clearAllItems()}
+				cls={cubeCss('', '', 'width-100')}
+				variant='error'
+				attachments={buttonAttachments}
+			>
+				Clear all
+			</Button>
 			</Flex>
 		</div>
 		<div class="[ flex-wrap justify-content-space-evenly gap-3 padding-1 margin-block-end-3 ]">
 			{#if Object.keys($homeStore.selectedItems).length === 0}
-				<Card padding={2}>
-					<h2 class="[ fw-500 margin-block-end-1 ]">Start searching items</h2>
-					<Flex align="center" useColumn={true}>
-						<Flex align="center" useColumn={true}>
-							<p class="clr-neutral-800">Add items</p>
-							<Button
-								variant="muted"
-								attachments={['hologram', 'capsule', 'mix', 'big-pad']}
-								disabled={true}><Icon>{ICON_PLUS}</Icon></Button
-							>
-						</Flex>
-						<Flex align="center" useColumn={true}>
-							<p class="clr-neutral-800">Calculate the differences</p>
-							<Button
-								variant="muted"
-								attachments={['hologram', 'capsule', 'mix', 'big-pad']}
-								disabled={true}><Icon>{ICON_CALCULATOR}</Icon></Button
-							>
-						</Flex>
-					</Flex>
-				</Card>
+				<IntroCard />
 			{/if}
 			{#each Object.values($homeStore.selectedItems) as item}
 				<Table {item} />

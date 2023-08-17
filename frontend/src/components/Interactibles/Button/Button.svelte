@@ -52,6 +52,8 @@
 		bind:this={_this}
 		on:click={handleClick}
 
+		aria-hidden={disabled}
+
 		class={_class.toString()}
 		type={isSubmit ? 'submit' : 'button'}
         

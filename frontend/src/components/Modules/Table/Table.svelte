@@ -14,7 +14,7 @@
 </script>
 
 <Flex useColumn={true} align='center' justify='start'>
-	<Flex cls={cubeCss('', '', 'width-100')} align="center">
+	<Flex cls={cubeCss('', '', 'width-100')} align="center" gap={2}>
 		<h2 class="[ fw-500 text-align-center ]">{item['DisplayName']}</h2>
 		<Button on:click={removeItem} variant="error" attachments={['hologram', 'mix', 'tiny-pad']}
 			><Icon fontSize={350} ariaLabel="Remove this item">{ICON_TRASH}</Icon></Button
@@ -23,7 +23,7 @@
 	<div class="[ table-container ] [ width-fit-content overflow-hidden ]">
 		<table>
 			<thead>
-				<tr class="[ fs-350 fw-500 ]">
+			<tr class="[ fs-350 fw-500 ]">
 					<td>Name</td>
 					<td>Value</td>
 					<td>%</td>

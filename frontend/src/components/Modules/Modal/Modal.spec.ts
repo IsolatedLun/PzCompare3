@@ -3,12 +3,12 @@ import { test, expect } from 'vitest';
 import Modal from './Modal.svelte';
 import { openModal } from './utils';
 
-test('Render a <Numeric /> that is 158890 => 158.89K', () => {
+test('Render a <Modal />', () => {
 	const { getByText } = render(Modal, { props: { id: 'modal' } });
 
-    const modal = document.querySelector('dialog#modal') as HTMLDialogElement;
+    const modal = document.querySelector('dialog') as HTMLDialogElement;
 	expect(modal.getAttribute('open')).toBeFalsy();
 
-    openModal('modal');
+    modal.showModal();
     expect(modal.getAttribute('open')).toBe('');
 });

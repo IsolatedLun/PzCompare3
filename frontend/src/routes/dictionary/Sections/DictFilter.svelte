@@ -33,7 +33,7 @@
 </script>
 
 <Flex cls={cubeCss('', '', 'width-100')} useColumn={true} gap={2}>
-	<Flex>
+	<Flex collapseOnMobile={true}>
 		<TextInput
 			bind:value={key}
 			showLabel={true}
@@ -99,7 +99,7 @@
 	<div class="width-100">
 		<h3 class="fw-500">Filters</h3>
 		<Card cls={cubeCss('', '', 'width-100')} variant="muted-light" padding={1}>
-			<Flex cls={cubeCss('', '', 'flex-wrap')}>
+			<Flex justify='start' cls={cubeCss('', '', 'flex-wrap')}>
 				{#if Object.values($dictStore.filters).length === 0}
 					<p>No filters found</p>
 				{/if}

@@ -11,6 +11,7 @@
 
 	function addItem() {
 		homeStore.addItem(name);
+		name = '';
 	}
 	let name: string = '';
 </script>

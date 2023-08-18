@@ -32,7 +32,7 @@
     </Flex>
 </div>
 
-<Flex cls={cubeCss('', '', 'margin-block-start-1')} align="center">
+<Flex cls={cubeCss('', '', 'margin-block-start-2')} align="center">
     <Button
         on:click={() => changePage($dictStore.page - 1)}
         disabled={$dictStore.page === 0}

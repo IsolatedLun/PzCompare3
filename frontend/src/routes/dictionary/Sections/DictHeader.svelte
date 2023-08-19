@@ -21,6 +21,10 @@
 		})
 	}
 
+	function clearAllItems() {
+		homeStore.clearAllItems();
+	}
+
 	let itemsLength = 0;
 	let modsLength = 0;
 </script>
@@ -31,7 +35,10 @@
 		<Card variant="muted-light" padding={1}>
 			<Flex>
 				<Button variant="muted" attachments={['capsule', 'hologram', 'mix']}>
-					{itemsLength} objects
+					{$homeStore.selectedItems.length} selected
+				</Button>
+				<Button variant="muted" attachments={['capsule', 'hologram', 'mix']}>
+					{itemsLength} items
 				</Button>
 				<Button variant="muted" attachments={['capsule', 'hologram', 'mix']}>
 					{modsLength} mods
@@ -47,6 +54,7 @@
 		</div>
 		<Flex>
 			<Button on:click={addAllItems} attachments={['hologram', 'mix']}>Add all</Button>
+			<Button on:click={clearAllItems} variant='error' attachments={['hologram', 'mix']}>Clear</Button>
 		</Flex>
 	</Flex>
 </header>

@@ -95,6 +95,8 @@ $input-checkbox-background: $clr-neutral-600;
 $input-checkbox-active-background: $clr-primary-400;
 $input-checkbox-circle-background: white;
 $input-checkbox-width: 2.5rem;
+
+$input-checkbox-circle-transition-duration: 144ms;
 $input-checkbox-circle-start: 30%;
 $input-checkbox-circle-width: 40%;
 $input-checkbox-circle-end: 100% - $input-checkbox-circle-start;

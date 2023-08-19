@@ -13,7 +13,7 @@
 	>
 		{#each Object.entries($homeStore.masterData.organized_items['vanilla']) as x}
 			<div class="margin-block-2">
-				<ItemCategory categoryName={x[0]} categoryItems={x[1]} />
+				<ItemCategory categoryName={x[0]} categoryItems={x[1]} canAddAll={true} />
 			</div>
 		{/each}
 	</Category>
@@ -27,7 +27,11 @@
 				<Category categoryTitle={mods[0]} categoryItemsLength={Object.values(mods[1]).length}>
 					{#each Object.entries(mods[1]) as modCategory}
 						<div class="margin-block-2">
-							<ItemCategory categoryName={modCategory[0]} categoryItems={modCategory[1]} />
+							<ItemCategory
+								categoryName={modCategory[0]}
+								categoryItems={modCategory[1]}
+								canAddAll={true}
+							/>
 						</div>
 					{/each}
 				</Category>

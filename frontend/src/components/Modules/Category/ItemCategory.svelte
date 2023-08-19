@@ -5,9 +5,15 @@
 	import { cubeCss } from '../../../utils/cubeCss/cubeCss';
 	import Item from './Item.svelte';
 	import Button from '../../Interactibles/Button/Button.svelte';
+	import { homeStore } from '../../../stores/homeStore';
+
+	function addAllItems() {
+		categoryItems.forEach(item => homeStore.addItem(item));
+	}
 
 	export let categoryName: string;
 	export let categoryItems: string[];
+	export let canAddAll = false;
 
 	let showItems = false;
 </script>
@@ -18,17 +24,27 @@
 			<h2 class="fw-500">
 				{categoryName} <span class="fs-400 clr-neutral-800">[{categoryItems.length}]</span>
 			</h2>
-			<Button
-				on:click={() => (showItems = !showItems)}
-				variant={showItems ? 'error' : 'muted'}
-				attachments={['hologram', 'mix']}
-			>
-				{#if showItems}
-					Close
-				{:else}
-					Open
+			<Flex align='center' gap={2}>
+				<Button
+					on:click={() => (showItems = !showItems)}
+					variant={showItems ? 'error' : 'muted'}
+					attachments={['hologram', 'mix']}
+				>
+					{#if showItems}
+						Close
+					{:else}
+						Open
+					{/if}
+				</Button>
+				{#if canAddAll}
+					<Button
+						on:click={addAllItems}
+						attachments={['hologram', 'mix', 'tiny-pad', 'capsule']}
+					>
+						Add all
+					</Button>
 				{/if}
-			</Button>
+			</Flex>
 		</Flex>
 	</header>
 

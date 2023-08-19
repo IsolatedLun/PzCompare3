@@ -8,7 +8,7 @@
 	import Modal from '../components/Modules/Modal/Modal.svelte';
 	import { openModal } from '../components/Modules/Modal/utils';
 	import Table from '../components/Modules/Table/Table.svelte';
-	import { ICON_CALCULATOR, ICON_FILTER, ICON_PLUS } from '../components/icons';
+	import { ICON_CALCULATOR, ICON_FILTER, ICON_PLUS, ICON_SORT } from '../components/icons';
 	import { homeStore } from '../stores/homeStore';
 	import { cubeCss } from '../utils/cubeCss/cubeCss';
 	import IntroCard from './Sections/IntroCard.svelte';
@@ -55,7 +55,7 @@
 				variant="error"
 				attachments={buttonAttachments}
 			>
-				C <span class="visually-hidden">Clear all items</span>
+				<span class="fw-800">C</span> <span class="visually-hidden">Clear all items</span>
 			</Button>
 		</Flex>
 	</section>
@@ -96,8 +96,9 @@
 					/>
 					<Button
 						on:click={sortTables}
-						attachments={buttonAttachments}>Sort</Button
-					>
+						attachments={buttonAttachments}>
+						<Icon ariaLabel='Sort tables'>{ICON_SORT}</Icon>
+					</Button>
 				</Flex>
 			</div>
 			<div class="[ flex-wrap justify-content-space-evenly gap-3 padding-1 margin-block-end-3 ]">

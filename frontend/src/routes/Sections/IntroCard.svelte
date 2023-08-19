@@ -13,7 +13,7 @@
         <Flex align="center" useColumn={true}>
             <p class="clr-neutral-800">Add items</p>
             <Button
-                variant="muted"
+                variant="primary"
                 attachments={['hologram', 'capsule', 'mix', 'big-pad']}
                 disabled={true}><Icon>{ICON_PLUS}</Icon></Button
             >
@@ -21,7 +21,7 @@
         <Flex align="center" useColumn={true}>
             <p class="clr-neutral-800">Calculate the differences</p>
             <Button
-                variant="muted"
+                variant="primary"
                 attachments={['hologram', 'capsule', 'mix', 'big-pad']}
                 disabled={true}><Icon>{ICON_CALCULATOR}</Icon></Button
             >
@@ -29,7 +29,7 @@
         <Flex align="center" useColumn={true}>
             <p class="clr-neutral-800">Filter attributes</p>
             <Button
-                variant="muted"
+                variant="primary"
                 attachments={['hologram', 'capsule', 'mix', 'big-pad']}
                 disabled={true}><Icon>{ICON_FILTER}</Icon></Button
             >
@@ -39,7 +39,7 @@
             <Button
                 variant="error"
                 attachments={['hologram', 'capsule', 'mix', 'big-pad']}
-                disabled={true}>C</Button
+                disabled={true}><span class="fw-800">C</span></Button
             >
         </Flex>
     </Flex>

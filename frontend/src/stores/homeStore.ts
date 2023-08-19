@@ -61,6 +61,8 @@ export function createHomeStore() {
         clearAllItems: () => store.update(x => {
             x.selectedItems = [];
             x.differences = {};
+            x.currentSortBy = '';
+            
             return x;
         }),
 

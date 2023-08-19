@@ -36,27 +36,25 @@
 					||
 					$homeStore.invertFilters && $homeStore.filters.includes(x[0])
 					}
-						{#if !Array.isArray(item['DisplayName'])}
-							<tr data-type={
-								$homeStore.differences[item['DisplayName']]?.[x[0]] === 0
-								|| !$homeStore.differences[item['DisplayName']]?.[x[0]]
-								? 'neutral'
-								: $homeStore.differences[item['DisplayName']]?.[x[0]] > 0
-								? 'positive'
-								: 'negative'
+						<tr data-target={$homeStore.currentSortBy === x[0]} data-type={
+							$homeStore.differences[item['DisplayName']]?.[x[0]] === 0
+							|| !$homeStore.differences[item['DisplayName']]?.[x[0]]
+							? 'neutral'
+							: $homeStore.differences[item['DisplayName']]?.[x[0]] > 0
+							? 'positive'
+							: 'negative'
+							}
+						>
+							<td>{x[0]}</td>
+							<td>{x[1]}</td>
+							<td class="[ pct ] [ text-align-center ]">
+								{
+									$homeStore.differences[item['DisplayName']]?.[x[0]]
+									? $homeStore.differences[item['DisplayName']]?.[x[0]] + '%'
+									: '-'
 								}
-							>
-								<td>{x[0]}</td>
-								<td>{x[1]}</td>
-								<td class="[ pct ] [ text-align-center ]">
-									{
-										$homeStore.differences[item['DisplayName']]?.[x[0]]
-										? $homeStore.differences[item['DisplayName']]?.[x[0]] + '%'
-										: '-'
-									}
-								</td>
-							</tr>
-						{/if}
+							</td>
+						</tr>
 					{/if}
 				{/each}
 			</tbody>

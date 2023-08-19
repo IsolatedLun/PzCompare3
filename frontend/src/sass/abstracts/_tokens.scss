@@ -7,6 +7,7 @@ $option-anim-button-overlay: true;
 
 // Colors
 $clr-primary-400: map-get(map-get($active-theme, 'primary'), 400);
+$clr-primary-800: map-get(map-get($active-theme, 'primary'), 800);
 
 $clr-misc-error: map-get(map-get($active-theme, 'misc'), 'error'); 
 $clr-misc-positive: map-get(map-get($active-theme, 'misc'), 'positive'); 
@@ -97,6 +98,17 @@ $input-checkbox-width: 2.5rem;
 $input-checkbox-circle-start: 30%;
 $input-checkbox-circle-width: 40%;
 $input-checkbox-circle-end: 100% - $input-checkbox-circle-start;
+
+// Table
+$table-background: linear-gradient(0deg, $clr-neutral-400, $clr-neutral-350);
+$table-box-shadow: 6px 16px 8px 0px rgb(0, 0, 0, 0.26);
+
+$table-border-top-width: 9px;
+$table-border-width: 1px;
+$table-border: $table-border-width solid $clr-neutral-500;
+
+$table-target-border-width: 2px;
+$table-target-border-color: $clr-primary-800;
 
 // Modal
 $modal-max-width: 50vmax;

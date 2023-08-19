@@ -1,4 +1,7 @@
-export type Item = Record<string, string | number | string[]>;
+export type Item = Record<string, string | number | string[]> & {
+    DisplayName: string,
+    Type: string,
+};
 export type CategoryList = Record<string, string[]>;
 export type MasterData =  {
     items: Record<string, Item>,
@@ -19,7 +22,8 @@ export type MasterData =  {
 
 export interface HomeStore {
     masterData: MasterData,
-    selectedItems: Record<string, Item>,
+    selectedItems: Item[],
+    currentSortBy: string;
     differences: Record<string, Record<string, number>>,
     filters: string[],
     invertFilters: boolean
@@ -35,6 +39,7 @@ export type OperatorFilter = {
 
 export interface DictionaryStore {
     items: string[],
+    currentItems: string[],
     filters: Record<string, OperatorFilter>,
 
     itemsPerPage: number,

@@ -8,27 +8,32 @@ table, tr,td {
 
 .table-container {
     --border-color: royalblue;
-    border-top: 8px solid var(--border-color);
+    border-top: $table-border-top-width solid var(--border-color);
 
-    background: linear-gradient(0deg, $clr-neutral-400, $clr-neutral-350);
-    border-radius: 9px;
+    background: $table-background;
+    border-radius: $border-radius-bevelled;
 
-    border-inline: 1px solid $clr-neutral-500;
-    border-block-end: 1px solid $clr-neutral-500;
-    box-shadow: 6px 16px 8px 0px rgb(0, 0, 0, 0.26);
+    border-inline: $table-border;
+    border-block-end: $table-border;
+    box-shadow: $table-box-shadow;
 
     tr:nth-child(2n),
     thead tr {
         background-color: $clr-neutral-300;
     }
 
+    
     tr[data-type='positive'] {
         background-color: transparentize($clr-misc-positive, 0.66);
-        border: 1px solid $clr-misc-positive;
+        border: $table-border-width solid $clr-misc-positive;
     }
-
+    
     tr[data-type='negative'] {
         background-color: transparentize($clr-misc-negative, 0.66);
-        border: 1px solid $clr-misc-negative;
+        border: $table-border-width solid $clr-misc-negative;
+    }
+    
+    tr:is([data-target='true']) {
+        border: $table-target-border-width solid $table-target-border-color;
     }
 }

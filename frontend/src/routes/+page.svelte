@@ -18,6 +18,16 @@
 		filterValue = '';
 	}
 
+	function sortTables() {
+		if(sortByValue) {
+			homeStore.setCurrentSortBy(sortByValue);
+			homeStore.sortTablesByAttribute();
+
+			sortByValue = '';
+		}
+	}
+
+	let sortByValue: string = '';
 	let filterValue: string = '';
 	const buttonAttachments: ButtonAttachments[] = ['hologram', 'mix', 'big-pad', 'capsule'];
 </script>
@@ -42,7 +52,7 @@
 			<Button
 				on:click={() => homeStore.clearAllItems()}
 				cls={cubeCss('', '', 'width-100')}
-				variant='error'
+				variant="error"
 				attachments={buttonAttachments}
 			>
 				C <span class="visually-hidden">Clear all items</span>
@@ -51,7 +61,7 @@
 	</section>
 	<section>
 		<Navbar />
-		<div class="padding-1" data-mobile="true">
+		<div class="[ padding-inline-2 margin-block-end-3 ]" data-mobile="true">
 			<Flex cls={cubeCss('', '', 'flex-wrap')} align="center" justify="space-between" gap={1}>
 				<Button
 					on:click={() => homeStore.calculateDifferences()}
@@ -66,22 +76,38 @@
 					><Icon ariaLabel="Open filter modal">{ICON_FILTER}</Icon></Button
 				>
 				<Button
-				on:click={() => homeStore.clearAllItems()}
-				cls={cubeCss('', '', 'width-100')}
-				variant='error'
-				attachments={buttonAttachments}
-			>
-				Clear all
-			</Button>
+					on:click={() => homeStore.clearAllItems()}
+					cls={cubeCss('', '', 'width-100')}
+					variant="error"
+					attachments={buttonAttachments}
+				>
+					Clear all
+				</Button>
 			</Flex>
 		</div>
-		<div class="[ flex-wrap justify-content-space-evenly gap-3 padding-1 margin-block-end-3 ]">
-			{#if Object.keys($homeStore.selectedItems).length === 0}
-				<IntroCard />
-			{/if}
-			{#each Object.values($homeStore.selectedItems) as item}
-				<Table {item} />
-			{/each}
+		<div>
+			<div class="[ margin-block-end-1 padding-inline-2 ]">
+				<Flex alignCenterOnMobile={true} align="center" justify="end">
+					<TextInput
+						bind:value={sortByValue}
+						label="Sort by"
+						placeholder="Eg. MaxDamage"
+						list={homeStore.getAttrs()}
+					/>
+					<Button
+						on:click={sortTables}
+						attachments={buttonAttachments}>Sort</Button
+					>
+				</Flex>
+			</div>
+			<div class="[ flex-wrap justify-content-space-evenly gap-3 padding-1 margin-block-end-3 ]">
+				{#if $homeStore.selectedItems.length === 0}
+					<IntroCard />
+				{/if}
+				{#each $homeStore.selectedItems as item}
+					<Table {item} />
+				{/each}
+			</div>
 		</div>
 	</section>
 </div>

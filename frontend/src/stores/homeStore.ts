@@ -1,5 +1,5 @@
 import { get, writable } from "svelte/store";
-import type { HomeStore, MasterData } from "./types";
+import type { HomeStore, Item, MasterData } from "./types";
 import { calculateDifferences } from "../utils/comparator";
 import { INITIAL_FILTERS } from "./consts";
 
@@ -16,7 +16,8 @@ export function createHomeStore() {
             version: 'v41',
             date_updated: 'Now'
         },
-        selectedItems: {},
+        selectedItems: [],
+        currentSortBy: '',
         differences: {},
         filters: INITIAL_FILTERS,
         invertFilters: false
@@ -29,26 +30,37 @@ export function createHomeStore() {
             x.masterData = masterData;
             return x;
         }),
+        setCurrentSortBy: (sortBy: string) => store.update(x => {
+            x.currentSortBy = sortBy;
+            return x;
+        }),
         
         getItems: () => Object.values(get(store).masterData.items),
+        getAttrs: () => get(store).masterData.attrs,
         getItemsLenght: () => Object.keys(get(store).masterData.items).length,
         getModsLength: () => Object.keys(get(store).masterData.mod_keys).length,
         getItemNames: () => Object.keys(get(store).masterData.items),
         getItemByName: (name: string) => get(store).masterData.items[name],
 
         addItem: (name: string) => store.update(x => {
-            if(x.masterData.items[name])
-                x.selectedItems[name] = x.masterData.items[name];
+            if(
+                x.masterData.items[name]
+                &&
+                !(x.selectedItems.find(item => item['DisplayName'] === name))
+            )
+                x.selectedItems.push(x.masterData.items[name]);
             return x;
         }),
         removeItem: (name: string) => store.update(x => {
-            delete x.selectedItems[name];
+            x.selectedItems = x.selectedItems.filter(item => item['DisplayName'] !== name);
             x.differences = {};
+            x.currentSortBy = '';
 
             return x;
         }),
         clearAllItems: () => store.update(x => {
-            x.selectedItems = {};
+            x.selectedItems = [];
+            x.differences = {};
             return x;
         }),
 
@@ -96,23 +108,37 @@ export function createHomeStore() {
                 return;
 
             store.update(x => {
-                Object.keys(x.selectedItems).forEach(itemKey => {
-                    const items = structuredClone(x.selectedItems);
-                    const item = structuredClone(items[itemKey])
-                    delete items[itemKey];
+                x.selectedItems.forEach(item => {
+                    const itemName = item['DisplayName'] as string;
+                    const otherItems: Item[] = x.selectedItems.filter(
+                        item => item['DisplayName'] !== itemName
+                    );
                     
-                    x.differences[itemKey] = calculateDifferences(item, Object.values(items));
+                    x.differences[itemName] = calculateDifferences(item, otherItems);
                 });
 
                 return x;
-            })
+            });
         },
 
-        paginateItems: (page: number, query: string[]) => {
-            const items = Object.keys(get(store).masterData.items);
+        sortTablesByAttribute: () => store.update(x => {
+            const attr = x.currentSortBy;
+            // Since some items don't have the attribute
+            // We exclude them, in order not to ruin the sort order
+            const excludedItems = x.selectedItems.filter(item => item[attr] === undefined);
+            x.selectedItems = x.selectedItems
+                .filter(item => item[attr] !== undefined)
+                .sort((a, b) => {
+                        let attrA = Math.abs(a[attr] as number);
+                        let attrB = Math.abs(b[attr] as number);
 
-            return items.splice(page * 20, page * 20 + 20);
-        }
+                        return attrB - attrA;
+                    }
+                ); 
+            
+            x.selectedItems.push(...excludedItems);
+            return x;
+        })
     }
 };
 

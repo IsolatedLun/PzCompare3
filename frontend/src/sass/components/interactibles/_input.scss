@@ -50,7 +50,7 @@
         @include transformCenter($left: $input-checkbox-circle-start);
         width: $input-checkbox-circle-width;
         aspect-ratio: 1;
-        background-color: white;
+        background-color: $input-checkbox-circle-background;
 
         transition: left 200ms ease-in-out;
     }

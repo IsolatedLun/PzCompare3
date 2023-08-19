@@ -7,7 +7,7 @@
 </script>
 <Flex align="center">
     <p class="fs-450 fw-500">{item}</p>
-    {#if $homeStore.selectedItems[item] !== undefined}
+    {#if $homeStore.selectedItems.find(x => x['DisplayName'] === item)}
         <Button
             on:click={() => homeStore.removeItem(item)}
             variant="error"

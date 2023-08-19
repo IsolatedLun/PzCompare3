@@ -8,11 +8,18 @@
 	import Icon from '../../../components/Modules/Icon/Icon.svelte';
 	import { ICON_FILTER } from '../../../components/icons';
 	import { openModal } from '../../../components/Modules/Modal/utils';
+	import { dictStore } from '../../../stores/dictionaryStore';
 
 	onMount(() => {
 		itemsLength = homeStore.getItemsLenght();
 		modsLength = homeStore.getModsLength();
 	});
+
+	function addAllItems() {
+		dictStore.getCurrentItems().forEach(itemName => {
+			homeStore.addItem(itemName);
+		})
+	}
 
 	let itemsLength = 0;
 	let modsLength = 0;
@@ -38,5 +45,8 @@
 				attachments={['hologram', 'mix', 'capsule']}><Icon>{ICON_FILTER}</Icon></Button
 			>
 		</div>
+		<Flex>
+			<Button on:click={addAllItems} attachments={['hologram', 'mix']}>Add all</Button>
+		</Flex>
 	</Flex>
 </header>

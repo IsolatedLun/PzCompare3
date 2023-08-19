@@ -18,8 +18,10 @@
 		let data = paginate(filteredItems, x.itemsPerPage, x.page);
 
 		currentItems = data[0];
+
 		x.page = data[1];
 		x.pages = data[2];
+        x.currentItems = filteredItems;
 	})
 </script>
 <div class="margin-block-start-1">

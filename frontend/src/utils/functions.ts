@@ -11,13 +11,13 @@ export function filterItems(items: string[], filters: Record<string, OperatorFil
         Object.values(filters).forEach(filter => {
             if(itemObject[filter.key] !== undefined) {
                 if(filter.operator === '>' && itemObject[filter.key] > filter.value)
-                filteredItems.push(itemObject["DisplayName"] as string);
+                filteredItems.push(itemObject["DisplayName"]);
                 if(filter.operator === '<' && itemObject[filter.key] < filter.value)
-                    filteredItems.push(itemObject["DisplayName"] as string);
+                    filteredItems.push(itemObject["DisplayName"]);
                 if(filter.operator === '===' && itemObject[filter.key] === filter.value)
-                    filteredItems.push(itemObject["DisplayName"] as string);
-                if(filter.operator === 'in' && itemObject[filter.key])
-                    filteredItems.push(itemObject["DisplayName"] as string);
+                    filteredItems.push(itemObject["DisplayName"]);
+                if(filter.operator === 'in' && filter.key in itemObject)
+                    filteredItems.push(itemObject["DisplayName"]);
             }
         });
     });

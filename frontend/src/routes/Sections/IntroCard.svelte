@@ -4,9 +4,10 @@
 	import Flex from "../../components/Modules/FlexAndGrid/Flex.svelte";
 	import Icon from "../../components/Modules/Icon/Icon.svelte";
 	import { ICON_CALCULATOR, ICON_FILTER, ICON_PLUS } from "../../components/icons";
+	import { cubeCss } from "../../utils/cubeCss/cubeCss";
 </script>
 
-<Card padding={2}>
+<Card cls={cubeCss('', '', 'margin-block-2')} padding={2}>
     <h2 class="[ fw-500 margin-block-end-1 ]">Start searching items</h2>
     <Flex align="center" useColumn={true} gap={2}>
         <Flex align="center" useColumn={true}>

@@ -6,6 +6,7 @@ import { homeStore } from "./homeStore";
 export function createDictStore() {
     const store = writable<DictionaryStore>({
         items: [],
+        currentItems: [],
         filters: {},
 
         itemsPerPage: 20,
@@ -16,10 +17,16 @@ export function createDictStore() {
     return {
         subscribe: store.subscribe,
 
+        getCurrentItems: () => get(store).currentItems,
+
         setItems: (items: string[]) => store.update(x => {
             x.items = items;
             x.pages = Math.floor(x.items.length / x.itemsPerPage);
 
+            return x;
+        }),
+        setCurrentItems: (items: string[]) => store.update(x => {
+            x.currentItems = items;
             return x;
         }),
 

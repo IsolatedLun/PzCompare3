@@ -12,7 +12,11 @@ const NEGATIVE_ATTRS = [
     "JamGunChance",
     "SoundGain",
     "SoundRadius",
-    "SoundVolume"
+    "SoundVolume",
+]
+
+const OPPOSITE_ATTRS = [
+    "ThirstChange",
 ]
 
 export function calculateDifferences(currentItem: Item, items: Item[]) {
@@ -29,6 +33,7 @@ export function calculateDifferences(currentItem: Item, items: Item[]) {
                 diff = 100;
             if(NEGATIVE_ATTRS.includes(key))
                 diff = diff * -1;
+
             differences[key] = Math.round(diff);
         }
     });

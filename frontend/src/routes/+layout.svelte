@@ -16,9 +16,9 @@
 </script>
 
 {#await fetchMasterData() then _}
-    <div class="[ flex flex-direction-column flex-grow-1 ]">
+    <main class="[ flex flex-direction-column flex-grow-1 ]">
         <slot />
-    </div>
+    </main>
     <Footer />
 {/await}
 

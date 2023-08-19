@@ -52,7 +52,7 @@
 				attachments={['hologram', 'mix', 'capsule']}><Icon>{ICON_FILTER}</Icon></Button
 			>
 		</div>
-		<Flex>
+		<Flex gap={2}>
 			<Button on:click={addAllItems} attachments={['hologram', 'mix']}>Add all</Button>
 			<Button on:click={clearAllItems} variant='error' attachments={['hologram', 'mix']}>Clear</Button>
 		</Flex>

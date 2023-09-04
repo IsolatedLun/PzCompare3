@@ -49,6 +49,10 @@ a {
 	color: $a-color;
 }
 
+a[data-underline="true"] {
+	text-decoration: underline;
+}
+
 ul:not([role=list]) {
 	list-style: none;
 }

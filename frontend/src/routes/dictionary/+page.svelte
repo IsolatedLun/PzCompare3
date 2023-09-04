@@ -8,6 +8,8 @@
 	let showOrganizedItems = false;
 </script>
 
+<title>PzCompare Dictionary - Search items in Project Zomboid</title>
+
 <div class="[ dictionary-grid ] [ flex-grow-1 ]">
 	<section class="[ padding-block-2 padding-inline-1 ]" data-desktop="true">
 		<DictFilter bind:showOrganizedItems />

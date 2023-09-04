@@ -18,7 +18,9 @@
 
 <nav class="[ navbar ] [ margin-block-end-2 ]">
 	<Flex align="center" cls={cubeCss('', '', 'flex-wrap')} alignCenterOnMobile={true} gap={3}>
-		<h1 class="fw-normal" data-desktop='true'>PzCompare</h1>
+		<h1 class="fw-normal" data-desktop='true'>
+			PzCompare <span class="visually-hidden">PzCompare - Project Zomboid Compare</span>
+		</h1>
 		<Flex align="center">
 			<TextInput
 				bind:value={name}

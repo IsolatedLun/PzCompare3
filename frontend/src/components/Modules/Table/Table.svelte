@@ -2,7 +2,7 @@
 	import { homeStore } from '../../../stores/homeStore';
 	import { cubeCss } from '../../../utils/cubeCss/cubeCss';
 	import Button from '../../Interactibles/Button/Button.svelte';
-	import { ICON_TRASH } from '../../icons';
+	import { ICON_EXTERNAL_LINK, ICON_TRASH } from '../../icons';
 	import Flex from '../FlexAndGrid/Flex.svelte';
 	import Icon from '../Icon/Icon.svelte';
 
@@ -15,7 +15,12 @@
 
 <Flex useColumn={true} align='center' justify='start'>
 	<Flex cls={cubeCss('', '', 'width-100')} align="center" gap={2}>
-		<h2 class="[ fw-500 text-align-center ]">{item['DisplayName']}</h2>
+		<h2 class="[ fw-500 text-align-center ]">
+			<a href={"https://pzwiki.net/wiki/" + item['DisplayName'].replaceAll(' ', '_')} data-underline="true" target="_blank">
+				{item['DisplayName']}
+			</a>
+			<Icon cls={cubeCss('', '', 'clr-primary-400')} fontSize={300}>{ICON_EXTERNAL_LINK}</Icon>
+		</h2>
 		<Button on:click={removeItem} variant="error" attachments={['hologram', 'mix', 'tiny-pad']}
 			><Icon fontSize={350} ariaLabel="Remove this item">{ICON_TRASH}</Icon></Button
 		>

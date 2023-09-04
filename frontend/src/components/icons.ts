@@ -52,6 +52,7 @@ export const ICON_MUSIC_DISC = '\uf51f';
 export const ICON_IMAGE = '\uf03e';
 export const ICON_MEDIA = '\uf03d';
 export const ICON_LINK = '\uf0c1';
+export const ICON_EXTERNAL_LINK = '\uf08e';
 export const ICON_MICROPHONE = '\uf130';
 export const ICON_TEXT = '\uf893';
 export const ICON_BROKEN_LINK = '\uf127';

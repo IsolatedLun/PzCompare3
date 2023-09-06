@@ -25,16 +25,16 @@
             <div class="clr-neutral-800" aria-hidden="true">|</div>
             <li>
                 <Flex gap={2}>
-                    <a href="https://www.buymeacoffee.com/isolated" target="_blank">Donate</a>
+                    <a href="https://www.buymeacoffee.com/isolated" target="_blank">Support</a>
                     <a href="https://github.com/IsolatedLun/PzCompare3" target="_blank">Source code</a>
-                    <a href="mailto:isolunaj3@gmail.com" target="_blank">Contact</a>
+                    <a href="mailto:contact2iso1@gmail.com" target="_blank">Contact</a>
                 </Flex>
                 
             </li>
             <div class="clr-neutral-800" aria-hidden="true">|</div>
             <li>
                 <Flex gap={2}>
-                    <a href="https://projectzomboid.com/blog/">Buy Project Zomboid</a>
+                    <a href="https://projectzomboid.com/blog/">Project Zomboid</a>
                     <a href="https://pzwiki.net/wiki/Main_Page">Wiki</a>
                 </Flex>
             </li>
